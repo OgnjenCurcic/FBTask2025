@@ -5,6 +5,7 @@ import fishingbooker.pages.LoginModalPage;
 import fishingbooker.pages.ManageProfilePage;
 import fishingbooker.pages.SitemapPage;
 import fishingbooker.utils.TestData;
+import fishingbooker.utils.URLs;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
@@ -13,18 +14,15 @@ import java.time.Duration;
 
 public class ManageProfileTest extends BaseTest {
 
-    private SitemapPage sitemapPage;
     private LoginModalPage loginModalPage;
     private ManageProfilePage manageProfilePage;
 
     @BeforeMethod
     public void setUp() {
 
-        driver.get("https://qahiring.dev.fishingbooker.com/");
+        driver.navigate().to(URLs.HOME_PAGE_URL);
 
-        sitemapPage = new SitemapPage(driver);
         loginModalPage = new LoginModalPage(driver);
-        manageProfilePage = new ManageProfilePage(driver);
 
         loginModalPage.openLoginModal();
         loginModalPage.enterEmail(TestData.LOGIN_EMAIL);
@@ -34,7 +32,7 @@ public class ManageProfileTest extends BaseTest {
 
         loginModalPage.enterPassword(TestData.LOGIN_PASSWORD);
 
-        driver.get("https://qahiring.dev.fishingbooker.com/manage/profile");
+        driver.navigate().to(URLs.MANAGE_PROFILE_PAGE_URL);
     }
 
 }
