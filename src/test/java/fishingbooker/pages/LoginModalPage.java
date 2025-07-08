@@ -1,18 +1,19 @@
 package fishingbooker.pages;
 
+import fishingbooker.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginModalPage {
-
-    WebDriver driver;
+public class LoginModalPage extends BasePage {
 
     public LoginModalPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
+
+    // Locators
 
     @FindBy(css = "a[data-testid='desktop-open-login-modal']")
     public WebElement loginButtonOnSitemap;
@@ -28,6 +29,8 @@ public class LoginModalPage {
 
     @FindBy(css = "button[data-testid='auth-password-submit-button']")
     public WebElement finalLoginButton;
+
+    // Methods
 
     public void openLoginModal() {
         loginButtonOnSitemap.click();

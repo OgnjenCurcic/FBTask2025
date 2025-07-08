@@ -5,6 +5,7 @@ import fishingbooker.utils.RandomUtils;
 import fishingbooker.utils.TestData;
 import fishingbooker.pages.SignUpModalPage;
 import fishingbooker.pages.SitemapPage;
+import fishingbooker.utils.URLs;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,10 +18,7 @@ public class SignUpTest extends BaseTest {
     @BeforeMethod
     public void openSignUpModal() {
 
-        // PopUp Window problem fix
-        // HTTP Basic Auth
-        // https://<username>:<password>@<URL> format is used
-        driver.get("https://fishingbooker:QAFBTest@qahiring.dev.fishingbooker.com/sitemap");
+        driver.navigate().to(URLs.SITEMAP_PAGE_URL);
 
         sitemapPage = new SitemapPage(driver);
         sitemapPage.clickSignUpButtonOnSitemapPage();
@@ -51,6 +49,8 @@ public class SignUpTest extends BaseTest {
     @Test
     public void signUpWithValidCredentials() {
 
+        // I could've also made a method for generating a unique firstname, lastname or password, but the goal was to
+        // only be able to register a new user and only the email needs to be unique
         signUpModalPage.fillFirstName(TestData.VALID_FIRST_NAME);
         signUpModalPage.fillLastName(TestData.VALID_LAST_NAME);
         signUpModalPage.fillEmail(RandomUtils.generateUniqueEmail());

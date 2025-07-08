@@ -15,7 +15,9 @@ public class SignUpModalPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    // Locators for Fields and Buttons
+    // Locators
+
+    // Fields and Buttons
 
     @FindBy(xpath = "//div[contains(@class,'sc-ehmTmK') and contains(text(),'Sign up')]")
     private WebElement modalTitle;
@@ -35,7 +37,7 @@ public class SignUpModalPage extends BasePage {
     @FindBy(css = "button[data-testid='auth-submit-button']")
     private WebElement signUpButton;
 
-    // Locators for Error Messages
+    // Error Messages
 
     @FindBy(xpath = "//div[contains(text(), 'First Name is required.')]")
     private WebElement firstNameError;
@@ -64,6 +66,14 @@ public class SignUpModalPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(), 'already registered at FishingBooker')]")
     private WebElement emailAlreadyExistsError;
 
+    // Methods
+
+    // Modal
+
+    public String getModalTitle() {
+        return getText(modalTitle);
+    }
+
     public boolean isModalVisible() {
         return isElementDisplayed(modalTitle);
     }
@@ -72,13 +82,7 @@ public class SignUpModalPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(modalTitle));
     }
 
-    public boolean isEmailAlreadyRegisteredErrorVisible() {
-        return isElementDisplayed(emailAlreadyExistsError);
-    }
-
-    public String getModalTitle() {
-        return getText(modalTitle);
-    }
+    // Fields
 
     public void fillFirstName(String firstName) {
         type(firstNameInput, firstName);
@@ -92,9 +96,15 @@ public class SignUpModalPage extends BasePage {
         type(emailInput, email);
     }
 
+    public boolean isEmailAlreadyRegisteredErrorVisible() {
+        return isElementDisplayed(emailAlreadyExistsError);
+    }
+
     public void fillPassword(String password) {
         type(passwordInput, password);
     }
+
+    // Sign Up
 
     public void clickSignUpOnModal() {
         try {

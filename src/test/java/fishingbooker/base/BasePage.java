@@ -26,10 +26,10 @@ public class BasePage {
         }
     }
 
-    // Type text into a field
+    // Clear existing text and type text into a field
     protected void type(WebElement element, String text) {
-        element.clear(); // Clear existing text
-        element.sendKeys(text); // Type new text
+        element.clear();
+        element.sendKeys(text); //
     }
 
     // Get visible text from an element
@@ -46,4 +46,10 @@ public class BasePage {
             return false;
         }
     }
+
+    // Scroll to a specific element
+    protected void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+    }
+
 }

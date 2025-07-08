@@ -1,5 +1,8 @@
 package fishingbooker.utils;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
 public class RandomUtils {
 
     public static String generateUniqueEmail() {

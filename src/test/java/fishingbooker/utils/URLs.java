@@ -2,9 +2,12 @@ package fishingbooker.utils;
 
 public class URLs {
 
-    public static final String HOME_PAGE_URL = "https://qahiring.dev.fishingbooker.com/";
-    public static final String SITEMAP_PAGE_URL = "https://www.sitemaps.com/sitemap/";
-    public static final String MANAGE_PROFILE_PAGE_URL = "https://qahiring.dev.fishingbooker.com/manage/profile";
+    // PopUp Window problem fix
+    // HTTP Basic Auth
+    // https://<username>:<password>@<URL> format is used
+
+    public static final String SITEMAP_PAGE_URL = "https://fishingbooker:QAFBTest@qahiring.dev.fishingbooker.com/sitemap";
+    public static final String MANAGE_PROFILE_PAGE_URL = "https://fishingbooker:QAFBTest@qahiring.dev.fishingbooker.com/manage/profile";
 
 
 }
