@@ -174,9 +174,8 @@ public class ManageProfilePage extends BasePage {
     public void selectBirthday(String day, String month, String year) {
         new Select(monthDropdown).selectByVisibleText(month);
 
-        // Mala pauza jer dayDropdown zavisi od izabranog meseca
         try {
-            Thread.sleep(1000); // Može se zameniti wait-om ako želiš kasnije
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

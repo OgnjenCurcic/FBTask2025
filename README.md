@@ -101,6 +101,83 @@ mvn clean test -DsuiteXmlFile="testng.xml"
 
 ---
 
+## Allure Report Instructions
+
+After running the tests, you can generate and view a full-featured test report using [Allure](https://docs.qameta.io/allure/).
+
+---
+
+### Install Allure CLI
+
+If you haven't installed Allure on your system yet:
+
+**For macOS (with Homebrew):**
+
+```
+brew install allure
+```
+
+**For Windows (with Scoop or Chocolatey):**
+
+```
+scoop install allure
+```
+
+_or_
+
+```
+choco install allure
+```
+
+---
+
+### Run Tests and Serve Report
+
+Run your tests:
+
+```
+mvn clean test
+```
+
+Then generate and open the Allure report in your default browser:
+
+```
+allure serve target/allure-results
+```
+
+---
+
+### Alternatively: Generate Static Report
+
+To generate a static report and open it manually:
+
+```
+allure generate target/allure-results --clean -o target/allure-report
+```
+
+_on macOS:_
+
+```
+open target/allure-report/index.html
+```
+
+_or on Windows:_
+
+```
+start target\allure-report\index.html
+```
+
+---
+
+### What You’ll See in the Report
+
+- Detailed test breakdown: passed, failed, skipped
+- Test descriptions, steps, and attachments (if added)
+- Author, severity level, story, and tags (if annotated)
+- Interactive charts and filters
+
+---
+
 ## Test Coverage Summary
 
 ### Sign-Up Flow
